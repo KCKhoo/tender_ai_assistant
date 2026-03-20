@@ -1,0 +1,49 @@
+[project]
+name = "enest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chromadb>=1.5.5",
+    "llama-cloud>=1.0",
+    "llama-index>=0.12.52",
+    "llama-index-embeddings-huggingface>=0.5.5",
+    "llama-index-postprocessor-jinaai-rerank>=0.3.0",
+    "llama-index-vector-stores-chroma>=0.4.2",
+    "python-dotenv>=1.2.2",
+    "streamlit>=1.55.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.6",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "B", "UP"]
+ignore = ["E501", "B008"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.14"
+explicit_package_bases = true
+mypy_path = "src"
+strict = true
+show_error_codes = true
