@@ -48,6 +48,9 @@ bom_boq_generator = setup_bom_boq_generator()
 
 st.title("Bill of Materials & Bill of Quantities Generator")
 st.caption("Click the button to generate BoM & BoQ")
+st.info(
+    "Page numbers in the citation refer to the actual document order, not the footer numbers."
+)
 
 if st.button("Generate BoM & BoQ"):
     log_container = st.container()
@@ -71,6 +74,6 @@ if "csv_bom_boq" in st.session_state:
     st.download_button(
         "Download Results",
         st.session_state["csv_bom_boq"],
-        "requirements.csv",
+        "boq_bom.csv",
         "text/csv",
     )

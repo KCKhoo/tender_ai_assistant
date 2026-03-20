@@ -127,14 +127,14 @@ BOM_BOQ_PROMPT = """"
 You are an expert in reading energy industry tender documents, including technical specifications and bid documents.
 
 <<<TASK>>>
-Accurately extract all Bill of Materials (BoM) and Bill of Quantities (BoQ) line items from the provided EXCERPTS.
+Accurately extract all project requirements, materials, and costs from the provided EXCERPTS as an individual JSON object
 
 <<<OUTPUT FORMAT>>>
 Return a valid JSON list of objects. Ensure the JSON is strictly parsable. Each object must follow this schema:
 [
     {
         "Item No": <item number or sub-item number>,
-        "Description of Work": <clear and short description>,
+        "Description": <can be project requirements, materials, and costs,
         "Unit": <unit information>",
         "Quantity": <quantity information>",
         "Notes": "<bullet points for any ambigious or missing information, or important additional information>"
@@ -142,7 +142,7 @@ Return a valid JSON list of objects. Ensure the JSON is strictly parsable. Each 
     ...
     {
         "Item No":
-        "Description of Work":
+        "Description":
         "Unit":
         "Quantity":
         "Notes":
@@ -156,10 +156,9 @@ Return a valid JSON list of objects. Ensure the JSON is strictly parsable. Each 
   - Do not fill in missing units and/or quantities with assumptions.
 
 - Atomic Granularity:
-  - If a single line item in the document contains multiple distinct components or sub-components,
-  break them into individual items
-  - Represent each individual item as a separate JSON object, for example: item, description of work,
-  and other similar fields.
+  - Each JSON object must represent exactly ONE item (project requirements, materials, or costs) and MUST NOT include multiple items
+  - If a single row in the EXCERPTS contains project requirements, materials, and/or costs, break them
+  down into separate JSON objects.
   - Use the parent Item No for all sub-components (e.g. if Item 1 contains three parts, create three JSON
   objects all labeled "1" as the item number).
 
@@ -169,9 +168,6 @@ Return a valid JSON list of objects. Ensure the JSON is strictly parsable. Each 
 
 - Unit & Quantity Integrity:
   - Capture units and quantities exactly as provided in the EXCERPTS
-
-- For work with lengthy text, provide a clear and short description explaining the work in 'Description of Work' fields
-and the details can be put in the 'Notes' field
 
 - Use the 'Notes' field to flag:
    - Any ambigious or confusing information that requires clarification or investigation

@@ -72,7 +72,10 @@ st.caption(
     "Click the button to extract requirements from the tender documents. "
     f"Extraction stops after at least {MAX_REQUIREMENTS} requirements is extracted in order to limit API usage and time"
 )
-
+st.info(
+    "The compliance field is not extracted because it is unclear whether the company meets the requirements. Human feedback may be required.\n\n"
+    "Page numbers in the citations refer to the actual document order, not the footer numbering."
+)
 
 if st.button("Extract Requirements"):
     log_container = st.container()
