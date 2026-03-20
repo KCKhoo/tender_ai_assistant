@@ -5,7 +5,9 @@ A Retrieval-Augmented Generation (RAG) powered assistant designed to:
 2. Extract requirements from tender documents
 3. Extract Bill of Quantities (BoQ) and Bill of Material (BoM) from tender documents
 
-Link: https://tender-ai-assistant.streamlit.app/
+Link for (1): https://tender-ai-assistant.streamlit.app/
+Link for (2): https://tender-ai-assistant.streamlit.app/Tender_Requirement_Extractor
+Link for (3): https://tender-ai-assistant.streamlit.app/BoM_and_BoQ_Generator
 
 ## System Architecture
 - PDF Parser
@@ -14,7 +16,7 @@ Link: https://tender-ai-assistant.streamlit.app/
 
 ## Tech Stack & Models
 
-### Dependency and Environment Management.
+### Dependency and Environment Management
 - `uv`
 - `pyproject.toml`
 
