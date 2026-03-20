@@ -6,6 +6,8 @@ from src.module.utils import char_idx_to_page_num, combine_markdown_files
 
 
 class Chunker:
+    """Chunk text"""
+
     def __init__(self, markdown_chunker, text_chunker):
         """Initialize the Chunker.
 

@@ -11,6 +11,8 @@ load_dotenv()
 
 
 class PDFLlamaParser:
+    """Parse PDF using LlamaParser"""
+
     def __init__(
         self,
         llama_parse_tier: str,
