@@ -19,6 +19,7 @@ dependencies = [
 dev = [
     "ipykernel>=7.2.0",
     "jupyter>=1.1.1",
+    "mypy>=1.19.1",
     "pre-commit>=4.5.1",
     "ruff>=0.15.6",
 ]
@@ -40,3 +41,10 @@ ignore = ["E501", "B008"]
 
 [tool.ruff.format]
 docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.14"
+explicit_package_bases = true
+mypy_path = "src"
+strict = true
+show_error_codes = true
