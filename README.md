@@ -10,9 +10,12 @@ Link for (2): https://tender-ai-assistant.streamlit.app/Tender_Requirement_Extra
 Link for (3): https://tender-ai-assistant.streamlit.app/BoM_and_BoQ_Generator
 
 ## System Architecture
-- PDF Parser
-- Chnking and Generting embedding
-- 3 different pipeline With vector store different purpose
+
+### Document Ingestion Pipeline Architecture
+![Document Ingestion Pipeline Architecture](assets/document_ingestion_architecture.png)
+
+### RAG Architecture
+![RAG Architecture](assets/rag_architecture.png)
 
 ## Tech Stack & Models
 
